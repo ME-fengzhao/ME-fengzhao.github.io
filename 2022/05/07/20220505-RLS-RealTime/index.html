@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Zhao Zhao">
+    
+    <title>
+        
+        Zhao Zhao
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/kedaya.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/kedaya.png","favicon":"/images/kedaya.png","article_img_align":"left","left_side_width":"260px","content_max_width":"1100px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"What Doesn't Kill You Makes You Stronger."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Zhao Zhao
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation"></span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/kedaya.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Zhao Zhao</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-07 01:23:45</span>
+        <span class="mobile">2022-05-07 01:23</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>Many estimation and control problems involve a process of the form <span class="math display">\[
+y_k=\phi_k \theta, 
+\]</span> where <span class="math inline">\(k =0, 1, 2,...\)</span> is the discrete-time step corresponding to the continuous-time step size <span class="math inline">\(T_s\)</span>, the scalar or vector <span class="math inline">\(y_k\in \mathbb{R}^p\)</span> is the measurement at step <span class="math inline">\(k\)</span>, the matrix <span class="math inline">\(\phi_k \in \mathbb{R}^{p\times n}\)</span> is the regressor at step <span class="math inline">\(k\)</span> whose entries consist of current and past data, and <span class="math inline">\(\theta \in \mathbb{R}^{n}\)</span> is a column vector of <span class="math inline">\(n\)</span> unknown parameters. The objective is to use <span class="math inline">\(y_k\)</span> and <span class="math inline">\(\phi_k\)</span> to estimate the components of <span class="math inline">\(\theta\)</span>. In applications, <span class="math inline">\(y_k\)</span> and <span class="math inline">\(\phi_k\)</span> are corrupted by noise, and thus it does not hold exactly. This motivates the need for the least squares estimates of <span class="math inline">\(\theta\)</span> given below.</p>
+<p>The measurements <span class="math inline">\(y_k\)</span> and the data in <span class="math inline">\(\phi_k\)</span> are typically obtained from a continuous-time process and, as such, are available at the sample times <span class="math inline">\(kT_s\)</span>, where <span class="math inline">\(T_s\)</span> is the sample interval. The batch approach to this problem is to collect a large amount of data and then apply least squares optimization to the collected data to compute an estimate of <span class="math inline">\(\theta\)</span>. In particular, collecting data over the time window <span class="math inline">\(i =0,...,k\)</span>, it follows that <span class="math display">\[
+ \Upsilon = \Phi \theta, \Upsilon=[y_0, ..., y_k]^\top, \Phi =[\phi_0, ..., \phi_k]^\top
+\]</span> Note that the above equation has the form <span class="math inline">\(Ax =b\)</span>, where <span class="math inline">\(A\)</span> denotes <span class="math inline">\(\Phi\)</span>, <span class="math inline">\(x\)</span> denotes <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(b\)</span> denotes <span class="math inline">\(\Upsilon\)</span>.</p>
+<p>In the presence of noise corrupting the data <span class="math inline">\(\Upsilon\)</span> and <span class="math inline">\(\Phi\)</span>, it may not have a solution. In this case, it is useful to replace it by a least squares optimization problem of the form: <span class="math display">\[
+\begin{aligned}
+    J_k(\hat \theta) =&amp; \sum_{i=0}^k (y_i-\phi_i \hat \theta)^\top(y_i-\phi_i \hat \theta) + (\hat \theta-\theta_0)^\top R(\hat \theta-\theta_0) \\
+    =&amp;(\Upsilon -\Phi \hat \theta)^\top(\Upsilon -\Phi \hat \theta)+(\hat \theta-\theta_0)^\top R(\hat \theta-\theta_0)
+\end{aligned}
+\]</span> where <span class="math inline">\(R\)</span> is a positive semidefinite (and thus, by definition, symmetric) matrix, and <span class="math inline">\(\theta_0\)</span> is an initial estimate of <span class="math inline">\(\theta\)</span>. In particular, the <strong><em>batch least squares (BLS)</em></strong> is given by <span class="math display">\[
+\theta_{opt,R}=(\Phi ^\top\Phi+R)^{-1} (\Phi^\top \Upsilon+R\theta_0)
+\]</span> Note that the inverse is of size <span class="math inline">\(n \times n\)</span>, and thus the computational requirement of the inverse is of order <span class="math inline">\(n^3\)</span>. In addition to the inverse, three matrix multiplications are needed. Note also that the memory needed to store <span class="math inline">\(\Phi\)</span> grows with <span class="math inline">\(k\)</span>. Furthermore, if <span class="math inline">\(\Phi\)</span> has full column rank, then <span class="math inline">\(R\)</span> can be set to zero, and it becomes <span class="math display">\[
+\theta_{opt,0}=(\Phi ^\top\Phi)^{-1} (\Phi^\top \Upsilon)
+\]</span> In many applications, computational speed and memory are limited. One way to alleviate these requirements is to recursively update an estimate of <span class="math inline">\(\theta_{opt,R}\)</span> using each additional measurement <span class="math inline">\(y_k\)</span>. <strong><em>A recursive algorithm of this type is especially convenient for real-time applications</em></strong>.</p>
+<blockquote>
+<p>Recursive least squares (RLS) is a technique used for minimizing a quadratic cost function, where the minimizer is updated at each step as new data become available. RLS is more computationally efficient than batch least squares, and it is extensively used for system identification and adaptive control. This article derives RLS and emphasizes its real-time implementation in terms of the availability of the data as well as the time needed for the computation.</p>
+</blockquote>
+<h4 id="recursive-least-squares">RECURSIVE LEAST SQUARES</h4>
+<p>This section provides a statement and proof of the RLS algorithm. This result involves a recursive algorithm for optimizing <span class="math inline">\(J_k\)</span> at each step <span class="math inline">\(k\)</span>. The optimization of <span class="math inline">\(J_k\)</span> updates the estimate <span class="math inline">\(\theta_k\)</span> of <span class="math inline">\(\theta\)</span> as measurements and data become available. We include a forgetting factor <span class="math inline">\(\lambda\)</span>, which provides higher weighting to more recent measurements and data.</p>
+<blockquote>
+<p><strong><em>Theorem 1</em></strong>:</p>
+<p>For all <span class="math inline">\(k \geq 0\)</span>, let <span class="math inline">\(\phi_k \in \mathbb{R}^{p \times n}\)</span>, and <span class="math inline">\(y_k \in \mathbb{R}^{p}\)</span>. Furthermore, let <span class="math inline">\(\theta_0 \in \mathbb{R}^{n}, P_0 \in \mathbb{R}^{n\times n}\)</span> be positive definite, and <span class="math inline">\(\lambda \in (0, 1]\)</span>. For all <span class="math inline">\(k \geq 0\)</span>, denote the minimizer of the function <span class="math display">\[
+\begin{aligned}
+  J_k(\hat \theta) =&amp; \sum_{i=0}^k \lambda^{k-i}(y_i-\phi_i \hat \theta)^\top(y_i-\phi_i \hat \theta) +  \lambda^{k+1}(\hat \theta-\theta_0)^\top P_0^{-1}(\hat \theta-\theta_0) \\
+\end{aligned}
+\]</span> by <span class="math display">\[
+\theta_{k+1}=\text{argmin}_{\hat \theta \in \mathbb{R}^n} J_k(\hat \theta)
+\]</span> Then, for all <span class="math inline">\(k \geq 0\)</span>, <span class="math inline">\(\theta_{k+1}\)</span> is given by <span class="math display">\[
+\begin{aligned}
+  P_{k+1} = &amp; \frac{1}{\lambda} P_k-\frac{1}{\lambda}P_k \phi_k^\top (\lambda I+\phi_k P_k\phi_k^\top)^{-1} \phi_kP_k\\
+  \theta_{k+1}=&amp; \theta_k +P_{k+1} \phi_k^\top (y_k-\phi_k\theta_k)
+\end{aligned}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong><em>Three Useful Lemmas</em></strong>:</p>
+<p>The following result is the quadratic minimization lemma:</p>
+<p><strong>LEMMA 1</strong> :</p>
+<p>Let <span class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>, assume that <span class="math inline">\(A\)</span> is positive definite, let <span class="math inline">\(b \in \mathbb{R}^n\)</span> and <span class="math inline">\(c \in \mathbb{R}^n\)</span>, and define <span class="math inline">\(f:\mathbb{R}^n \to \mathbb{R}\)</span> by <span class="math display">\[
+f(x) = x^\top Ax +2b^\top x +c.
+\]</span> Then the unique minimizer of <span class="math inline">\(f\)</span> is <span class="math display">\[
+x_{opt}=-A^{-1}b,
+\]</span> and the minimum value of <span class="math inline">\(f\)</span> is <span class="math display">\[
+f(x_{opt})=c-b^\top A^{-1}b
+\]</span> The following result is the matrix inversion lemma:</p>
+<p><strong>LEMMA 2</strong> :</p>
+<p>Let <span class="math inline">\(A\in \mathbb{R}^{n\times n}, U\in \mathbb{R}^{n\times p}, C\in \mathbb{R}^{p\times p}, V\in \mathbb{R}^{p\times n}\)</span>, and assume that <span class="math inline">\(A,C\)</span>, and <span class="math inline">\(A +UCV\)</span> are nonsingular. Then <span class="math display">\[
+(A +UCV)^{-1} = A^{-1}-A^{-1}U(C^{-1}+VA^{-1}U)^{-1}VA^{-1}
+\]</span> <strong>LEMMA 3</strong> :</p>
+<p>Let <span class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span> be positive semidefinite, let <span class="math inline">\(B\in \mathbb{R}^{n\times m}\)</span>, and let <span class="math inline">\(C\in \mathbb{R}^{n\times n}\)</span> be positive definite. Then, <span class="math display">\[
+\left[I-AB^\top(C+BAB^\top)^{-1}B\right]AB^\top = AB^\top(C+BAB^\top)^{-1}C.
+\]</span></p>
+</blockquote>
+<p>Proof :</p>
+<p>Note that <span class="math inline">\(J_0 (\hat \theta)\)</span> can be written as <span class="math display">\[
+\begin{aligned}
+    J_0 (\hat \theta) = &amp;(y_0-\phi_0 \hat \theta)^\top(y_0-\phi_0 \hat \theta) +  \lambda(\hat \theta-\theta_0)^\top P_0^{-1}(\hat \theta-\theta_0) \\
+    =&amp; (y_0^\top- \hat \theta^\top \phi_0^\top)(y_0-\phi_0 \hat \theta)+\lambda(\hat \theta^\top-\theta_0^\top)(P_0^{-1}\hat \theta- P_0^{-1}\theta_0) \\
+    =&amp; y_0^\top y_0 -2y_0^\top\phi_0 \hat \theta+\hat \theta^\top \phi_0^\top\phi_0 \hat \theta +\lambda \hat \theta^\top P_0^{-1}\hat \theta-2\lambda \theta_0^\top P_0^{-1}\hat \theta+\lambda\theta_0^\top P_0^{-1}\theta_0 \\
+    =&amp; \hat \theta ^\top \underbrace{(\phi_0^\top\phi_0+\lambda P_0^{-1})}_{A_0}\hat \theta +2 (\underbrace{(-\phi_0^\top y_0-\lambda P_0^{-1}\theta_0)}_{b_0})^\top \hat \theta+\underbrace{y_0^\top y_0+\lambda\theta_0^\top P_0^{-1}\theta_0}_{c_0} \\
+    =&amp; \hat \theta ^\top A_0\hat \theta+2b_0^\top \hat \theta+c_0
+\end{aligned}
+\]</span> Defining <span class="math display">\[
+P_1=A_0^{-1}, A = P_0^{-1}, C = \frac{1}{\lambda}I, U=\phi_0^\top , V = \phi_0
+\]</span> With <strong>LEMMA 2</strong>, we have <span class="math display">\[
+\begin{aligned}
+    P_1= &amp; \frac{1}{\lambda}\left( P_0^{-1}+\frac{1}{\lambda}\phi_0^\top\phi_0 \right)^{-1}\\
+      =&amp; \frac{1}{\lambda}P_0^{-1}-\frac{1}{\lambda}P_0 \phi_0^\top\left(\lambda I+\phi_0^\top P_0 \phi_0\right)^{-1}\phi_0P_0
+\end{aligned}
+\]</span> Additionally, because <span class="math inline">\(A_0\)</span> is positive definite, it follows from <strong>Lemma 1</strong> that the unique minimizer is given by <span class="math display">\[
+\begin{aligned}
+    \theta_1 =&amp;-A_0^{-1} b_0  \\
+        = &amp; A_0^{-1}\phi_0^\top y_0+\lambda A_0^{-1}P_0^{-1}\theta_0\\
+        =&amp; P_1\phi_0^\top y_0+\lambda  P_1P_0^{-1}\theta_0\\
+        =&amp; P_1\phi_0^\top y_0+  P_1(P_1^{-1}-\phi_0^\top\phi_0)\theta_0\leftarrow ({ \color{red}A_0/P_1^{-1}-\phi_0^\top\phi_0=\lambda P_0^{-1}})\\
+        =&amp; P_1\phi_0^\top y_0+  \theta_0- P_1\phi_0^\top\phi_0\theta_0\\
+        =&amp; \theta_0+P_1\phi_0^\top(y_0-\phi_0\theta_0)
+\end{aligned}
+\]</span></p>
+<p>Hence, it is satisfied for <span class="math inline">\(k =0\)</span>.</p>
+<p>Now, let <span class="math inline">\(k \geq 1\)</span>. Then <span class="math inline">\(J_k(\hat \theta)\)</span> can be written as <span class="math display">\[
+\begin{aligned}
+    J_k(\hat \theta) = &amp;  \hat \theta ^\top A_k\hat \theta+2b_k \hat \theta+c_k \\
+    A_k = &amp; \sum_{i=0}^k \lambda^{k-i}\phi_i^\top\phi_i+\lambda^{k+1} P_0^{-1}\\
+    b_k = &amp; -\sum_{i=0}^k \lambda^{k-i}\phi_i^\top y_i+\lambda^{k+1} P_0^{-1}\theta_0\\
+    c_k = &amp; -\sum_{i=0}^k \lambda^{k-i}y_i^\top y_i+\lambda^{k+1} \theta_0^\top P_0^{-1}\theta_0
+\end{aligned}
+\]</span> Furthermore, <span class="math inline">\(A_k\)</span> and <span class="math inline">\(b_k\)</span> can be written recursively as <span class="math display">\[
+\begin{aligned}
+    A_k= &amp; \lambda A_{k-1} + \phi_k ^\top \phi_k \\
+    b_k= &amp; \lambda b_{k-1} - \phi_k ^\top y_k
+\end{aligned}
+\]</span> Defining: <span class="math display">\[
+P_{k+1}=A_k^{-1},
+\]</span> it follows from <strong>Lemma 2</strong> with <span class="math display">\[
+A = P_k^{-1}, C = \frac{1}{\lambda}I, U=\phi_k^\top , V = \phi_k
+\]</span> we have <span class="math display">\[
+\begin{aligned}
+    P_{k+1} = &amp; \left(\lambda (A_{k-1} + \frac{1}{\lambda}\phi_k ^\top \phi_k)\right)^{-1}\\
+        = &amp; \frac{1}{\lambda}\left(P_k^{-1}+ \frac{1}{\lambda}\phi_k ^\top \phi_k\right)^{-1}\\
+        = &amp; \frac{1}{\lambda}P_k^{-1}-\frac{1}{\lambda}P_k \phi_k^\top\left(\lambda I+\phi_k^\top P_k \phi_k\right)^{-1}\phi_kP_k
+\end{aligned}
+\]</span> Furthermore, the minimizer <span class="math inline">\(\theta_{k+1}\)</span> of <span class="math inline">\(J_k\)</span> is given by <span class="math display">\[
+\theta_{k+1} = -A_k^{-1}b_k
+\]</span> Because <span class="math inline">\(A_k\)</span> is positive definite, it follows from <strong>Lemma 1</strong> that <span class="math display">\[
+\begin{aligned}
+    \theta_{k+1} =&amp;-A_k^{-1} b_k  \\
+         = &amp; A_k^{-1}( \phi_k ^\top y_k-\lambda b_{k-1}) \\
+         = &amp; A_k^{-1}( \phi_k ^\top y_k+\lambda A_{k-1}\theta_k)\leftarrow {\color{red}\theta_{k} = -A_{k-1}^{-1}b_{k-1} }\\
+         = &amp; A_k^{-1}\left( \phi_k ^\top y_k+(A_k-\phi_k ^\top \phi_k)\theta_k\right)\leftarrow {\color{red}A_k=  \lambda A_{k-1} + \phi_k ^\top \phi_k}\\
+         = &amp; A_k^{-1}\phi_k ^\top y_k+ (I-A_k^{-1}\phi_k ^\top \phi_k)\theta_k\\
+         =&amp; \theta_k+ A_k^{-1}\phi_k ^\top (y_k-\phi_k\theta_k) \\
+         =&amp; \theta_k+ P_{k+1}\phi_k ^\top (y_k-\phi_k\theta_k)\leftarrow {\color{red}P_{k+1}=A_k^{-1}}
+\end{aligned}
+\]</span> Hence, <strong><em>Theorem 1</em></strong> is satisfied.</p>
+<p>Note that, if <span class="math inline">\(\lambda =1\)</span>, <span class="math inline">\(R\)</span> is positive definite, and <span class="math inline">\(P_0=R^{-1}\)</span>, then the RLS minimizer <span class="math inline">\(\theta_{k+1}\)</span> is equal to the BLS minimizer <span class="math inline">\(\theta_{opt,R}\)</span>.</p>
+<p>The notation <span class="math inline">\(\theta_{k+1}\)</span> for the minimizer of <span class="math inline">\(J_k\)</span> emphasizes the fact that <span class="math inline">\(\theta_{k+1}\)</span>, which is based on data available up to step <span class="math inline">\(k\)</span>, is not available until the update given by Theorem 1 is completed, which occurs at step <span class="math inline">\(k +1\)</span>.</p>
+<p>The computational requirements of RLS are primarily determined by <span class="math inline">\(n\)</span>. In particular, <span class="math inline">\(P_k\)</span> is <span class="math inline">\(n\times n\)</span>, and thus the computational requirement for updating <span class="math inline">\(P_k\)</span> given by (9) is of order n2 . Furthermore, the inverse in Theorems 1 is of size <span class="math inline">\(p\times p\)</span>, which, since typically <span class="math inline">\(p \ll n\)</span>, is much less demanding than the inverse required by BLS. In addition, the storage requirements of RLS are of order <span class="math inline">\(n^2\)</span>, which does not grow with <span class="math inline">\(k\)</span>. Consequently, the computational and memory requirements of RLS are significantly less than those of BLS.</p>
+<h4 id="alternative-theta_k-update-with-inverse">ALTERNATIVE <span class="math inline">\(\theta_k\)</span> UPDATE WITH INVERSE</h4>
+<p>The following result is a variation of <strong><em>Theorem 1</em></strong>. In this formulation, the updates of <span class="math inline">\(P_k\)</span> and <span class="math inline">\(\theta_k\)</span> are reversed.</p>
+<blockquote>
+<p><strong><em>Theorem 2</em></strong>:</p>
+<p>For all <span class="math inline">\(k \geq 0\)</span>, let <span class="math inline">\(\phi_k \in \mathbb{R}^{p \times n}\)</span>, and <span class="math inline">\(y_k \in \mathbb{R}^{p}\)</span>. Furthermore, let <span class="math inline">\(\theta_0 \in \mathbb{R}^{n}, P_0 \in \mathbb{R}^{n\times n}\)</span> be positive definite, and <span class="math inline">\(\lambda \in (0, 1]\)</span>. For all <span class="math inline">\(k \geq 0\)</span>, denote the minimizer of the function <span class="math display">\[
+\begin{aligned}
+  J_k(\hat \theta) =&amp; \sum_{i=0}^k \lambda^{k-i}(y_i-\phi_i \hat \theta)^\top(y_i-\phi_i \hat \theta) +  \lambda^{k+1}(\hat \theta-\theta_0)^\top P_0^{-1}(\hat \theta-\theta_0) \\
+\end{aligned}
+\]</span> by <span class="math display">\[
+\theta_{k+1}=\text{argmin}_{\hat \theta \in \mathbb{R}^n} J_k(\hat \theta)
+\]</span> Then, for all <span class="math inline">\(k \geq 0\)</span>, <span class="math inline">\(\theta_{k+1}\)</span> is given by <span class="math display">\[
+\begin{aligned}
+  \theta_{k+1}=&amp; \theta_k +P_{k} \phi_k^\top(\lambda I+\phi_k P_k\phi_k^\top) (y_k-\phi_k\theta_k)\\
+  P_{k+1} = &amp; \frac{1}{\lambda} P_k-\frac{1}{\lambda}P_k \phi_k^\top (\lambda I+\phi_k P_k\phi_k^\top) \phi_kP_k\\
+\end{aligned}
+\]</span></p>
+</blockquote>
+<p>Proof :</p>
+<p>Using <span class="math inline">\(P_{k+1}\)</span> in <strong><em>Theorem 1</em></strong>, we have <span class="math display">\[
+\begin{aligned}
+    \theta_{k+1}=&amp; \theta_k +\left(\frac{1}{\lambda} P_k-\frac{1}{\lambda}P_k \phi_k^\top (\lambda I+\phi_k P_k\phi_k^\top)^{-1} \phi_kP_k\right) \phi_k^\top (y_k-\phi_k\theta_k) \\
+    =&amp; \theta_k+\frac{1}{\lambda}\left(I-P_k \phi_k^\top (\lambda I+\phi_k P_k\phi_k^\top)^{-1}\phi_k\right)P_k\phi_k^\top (y_k-\phi_k\theta_k)\\
+    =&amp; \theta_k+P_k\phi_k^\top(\lambda I+\phi_k P_k\phi_k^\top)^{-1}((y_k-\phi_k\theta_k) \leftarrow \color{red}\text{LEMMA 3 }
+\end{aligned}
+\]</span></p>
+<h4 id="real-time-implementation-of-recursive-least-squares">REAL-TIME IMPLEMENTATION OF RECURSIVE LEAST SQUARES</h4>
+<p>In many applications, it is desirable to implement RLS so that the estimate <span class="math inline">\(\theta_k\)</span> is available in real time without latency. Note that the estimate <span class="math inline">\(\theta_{k+1}\)</span> depends on measurements available up to and including step <span class="math inline">\(k\)</span>, namely, <span class="math inline">\(y_k\)</span> and <span class="math inline">\(\phi_k\)</span> . Since time is needed to compute <span class="math inline">\(\theta_{k+1}\)</span>, the updated estimate <span class="math inline">\(\theta_{k+1}\)</span> is not available at time <span class="math inline">\(k\)</span>; rather, it is available at the next step, namely, <span class="math inline">\(k +1\)</span>. Consequently, the minimizer of <span class="math inline">\(J_k\)</span> is denoted by <span class="math inline">\(\theta_{k+1}\)</span>, where the subscript <span class="math inline">\(k +1\)</span> conveys the fact that the minimizer of <span class="math inline">\(J_k\)</span> is not available until step <span class="math inline">\(k +1\)</span>. Figure 1 shows how the measurements and data that are available at step <span class="math inline">\(k\)</span> are used during the time interval <span class="math inline">\([kT_s, (k +1)T_s]\)</span> to compute the next estimate<span class="math inline">\(\theta_{k+1}\)</span> .</p>
+<p><img src="20220505-RLS-RealTime/image-20220507012213190.png" /></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/06/20220505-Inverse%20Matrix%20Update%20for%20Kernel%20Matrix/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Inverse Matrix Update for Kernel Matrix</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Zhao Zhao</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
