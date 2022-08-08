@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Zhao Zhao">
+    
+    <title>
+        
+            A Review of Single‐Cell Pose Adjustment and Puncture |
+        
+        Zhao Zhao
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/kedaya.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/kedaya.png","favicon":"/images/kedaya.png","article_img_align":"left","left_side_width":"260px","content_max_width":"1100px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"What Doesn't Kill You Makes You Stronger."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Zhao Zhao
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">A Review of Single‐Cell Pose Adjustment and Puncture</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/kedaya.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Zhao Zhao</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-08-08 12:34:06</span>
+        <span class="mobile">2022-08-08 12:34</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Review/">Review</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Compliant-Mechanisms/">Compliant Mechanisms</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>Guo, X., Zhang, Y., Jin, D., &amp; Zhou, M. (2022). A Review of
+Single‐Cell Pose Adjustment and Puncture. <em>Advanced Intelligent
+Systems</em>, 2200096.</p>
+</blockquote>
+<h3 id="introduction">1. Introduction</h3>
+<p>Cell manipulation lays a basis for cell research. In particular,
+single-cell manipulation technology is one of the challenges in the
+field of bioengineering, medical engineering, agricultural engineering,
+chemical engineering, etc. Single-cell manipulation technology refers to
+cell pose adjustment (细胞位姿调整), cell puncture (细胞穿刺), cell
+cutting (细胞切割), cell sorting (细胞分类), and others by driving
+individual cells in a direct contact or noncontact manner under an
+inverted high-power microscope.</p>
+<p>The single cell manipulation ranges from the nanometer to the
+submillimeter, which covers nearly all sizes of cells. Therefore, single
+cell manipulation <strong>has to rely on assisted tools</strong> due to
+the limitation of human hand tremor (人手震颤，150 micrometer) and
+vision resolution (10 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>).</p>
+<p>Cell manipulation at the microscale differs from general particle
+manipulation. Even though with the assisted tool of micromanipulator and
+microscope, the cell manipulation is difficult due to cell viability
+(细胞活力) and fragility (脆弱性). Therefore, cell type, structure, and
+cell operation conditions are difficulties affecting the effectiveness
+and efficiency of single-cell manipulation.</p>
+<ul>
+<li>Mechanical contact: This method will deform the cell which can lead
+to mechanical damage.</li>
+<li>Electrical field method: cause significant damage and affect cell
+development under high voltage.</li>
+<li>Optical tweezers: These tweezers have an upper limit on cell size
+and only capture particles near the beams. In addition, the high energy
+of the beam can cause damage to the cell and affect cell viability.</li>
+<li>Magnetic field method: However, on the one hand, the cell
+orientation is significantly limited by the magnetic field alignment; on
+the other hand, the cell should be labeled with magnetic particles.</li>
+<li>Acoustic field methods hydrodynamic drive methods : Compared with
+the optical field, acoustic field methods are more advantageous, which
+have lower energy and nonnegative effects on cell viability.
+Furthermore, acoustic field methods do not require magnetic or other
+special properties of materials.</li>
+</ul>
+<p>Different from cell pose adjustment, cell puncture is an invasive
+cell manipulation. Cell puncture is of high significance for accurately
+injecting exogenous material into the target location inside cell or
+extracting specific material inside cell. Existing cell puncture methods
+can fall into ordinary <strong>glass needle puncture methods</strong>,
+<strong>piezoelectric-assisted puncture methods</strong>, and
+<strong>rotational oscillatory drill (Ros-drill) puncture</strong>
+methods.</p>
+<p>In this research, the needle installed on the manipulator was pushed
+by a mechanical drive to puncture the cell. Compared with ordinary glass
+needle puncture methods, the piezoelectric-assisted puncture methods are
+characterized by a <strong>higher success rate</strong>. The
+piezoelectric-assisted methods directly deliver piezoelectric pulses to
+the needle end, whereas there is transverse vibration (横向振动) which
+will increase the trauma on the cell membrane during puncture. To make
+up for this shortcoming, Ros-drill puncture method has been proposed.
+The method applies a rotational micromotor, thus generating
+high-frequency and small-amplitude vibrations at the injection needle
+tip.</p>
+<h3 id="single-cell-pose-adjustment-methods">2. Single-Cell Pose
+Adjustment Methods</h3>
+<p>Existing cell pose adjustment methods can be classified into
+<strong>mechanical contact</strong>, <strong>electric field</strong>,
+<strong>optical field</strong>, <strong>magnetic field</strong>,
+<strong>acoustic field</strong>, and <strong>hydrodynamic drive</strong>
+methods.</p>
+<h4 id="mechanical-contact-methods">2.1. Mechanical Contact Methods</h4>
+<p>In general, mechanical contact methods refer to the direct contact
+with cells by a microneedle installed in a manipulator, and the
+single-cell pose is adjusted using the friction between cell and glass
+pipette to achieve precise cell positioning. Based on the visualservo
+system, the method generally has a success rate of more than 90%, and
+its rotation accuracy is 0.3°,significantly higher than the manual
+operation accuracy of 8.3°. The method has been used to breed research
+in species (e.g., mouse oocytes (小鼠卵母细胞) and zebrafish embryonic
+cells (斑马鱼胚胎细胞)).</p>
+<p>There are two typical manipulations during cell rotation. One
+rotational manipulation is <strong>in-plane rotation</strong>, where the
+cells are rotated in the focal plane (XY plane). The other one
+rotational manipulation is <strong>out-of-plane rotation</strong>, where
+the cells are rotated in the vertical plane (ZX plane). Mechanical
+contact methods can be classified into four types, including
+single-pipette push (单吸液管推动), double-pipette grapple (双吸管抓斗),
+multi-pipette synergy (多移液器协同), and relative motion between
+micropipette (微量移液管) and substrate (基底) methods.</p>
+<p>In the single-pipette push operation method, a single holding needle
+is used to push the cell motion, which has limited freedom adjustment.
+In contrast, the double-pipette grapple operation method can adjust
+cells’ pose more flexibly. However, the extrusion deformation of mouse
+oocytes was relatively significant and easy to cause the shedding of the
+polar body of mouse oocytes (小鼠卵母细胞极体的脱落) and hinder cell
+development. This double-pipette grapple method has a limitation that it
+should frequently switch the objective lens to find a single cell or a
+pipette. However, due to the inertia of the fluid, the above method
+cannot ensure that only one cell is spat out at a time.</p>
+<p>Different from the cells, zebrafish have surface pigments and complex
+physiological structures. There are challenges for posture recognition
+and adjustment during microinjection. To address these challenges, Fan
+et al. designed a rotation stage and a rotation actuator. The former is
+used to adjust the <strong>horizontal posture of the zebrafish</strong>
+and the latter is used to <strong>rotate the zebrafish</strong>.</p>
+<p>Over the past few years, as 3D printing technology and new materials
+have been leaping forward, numerous microgrippers with exquisite
+structures have been manufactured and applied in the single-cell
+operation.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Rotation DOF</th>
+<th>Speed<br>[s cell<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="2.232ex" height="1.887ex" role="img" focusable="false" viewBox="0 -833.9 986.7 833.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"></g><g data-mml-node="TeXAtom" transform="translate(33,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></g></g></svg></mjx-container></span>]</th>
+<th>Success<br>rate [%]</th>
+<th>Rotation angle<br>error [°]</th>
+<th>Manipulation object</th>
+<th>Sizes<br>[<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>]</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Single pipette push</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>5</td>
+<td>Mouse embryos</td>
+<td>100</td>
+<td>Embryo biopsy</td>
+</tr>
+<tr class="even">
+<td>Double pipette grapple</td>
+<td>2</td>
+<td>11.2</td>
+<td>Out of plane 94, in plane 95</td>
+<td>In plane 3.9</td>
+<td>Mouse embryos</td>
+<td>120</td>
+<td>Cell biopsy</td>
+</tr>
+<tr class="odd">
+<td>Double pipette grapple</td>
+<td>2</td>
+<td>10–15</td>
+<td>97.6</td>
+<td>0.7</td>
+<td>Mouse embryos</td>
+<td>120</td>
+<td>Cell biopsy</td>
+</tr>
+<tr class="even">
+<td>Multipipette synergy</td>
+<td>2</td>
+<td>90</td>
+<td>97</td>
+<td>-</td>
+<td>Mouse embryos</td>
+<td>100</td>
+<td>Nuclear transplantation</td>
+</tr>
+<tr class="odd">
+<td>Relative motion</td>
+<td>2</td>
+<td>13</td>
+<td>97.5</td>
+<td>0.5</td>
+<td>Zebrafish embryos</td>
+<td>1200</td>
+<td>Cell orientation and position</td>
+</tr>
+<tr class="even">
+<td>Relative motion</td>
+<td>2</td>
+<td>31</td>
+<td>x-axis 92.5, z-axis 97.5</td>
+<td>0.3</td>
+<td>Zebrafish embryos</td>
+<td>1200</td>
+<td>Cell orientation and position</td>
+</tr>
+<tr class="odd">
+<td>Relative motion</td>
+<td>2</td>
+<td>12</td>
+<td><span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.312ex;" xmlns="http://www.w3.org/2000/svg" width="4.651ex" height="1.819ex" role="img" focusable="false" viewBox="0 -666 2055.8 804"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(1055.8,0)"><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(500,0)"></path></g></g></g></svg></mjx-container></span></td>
+<td>-</td>
+<td>Porcine oocytes</td>
+<td>150</td>
+<td>Somatic cell nuclear transfer</td>
+</tr>
+<tr class="even">
+<td>Relative motion</td>
+<td>2</td>
+<td>70</td>
+<td>93.3</td>
+<td>-</td>
+<td>Porcine oocytes</td>
+<td>150</td>
+<td>Somatic cell nuclear transfer</td>
+</tr>
+<tr class="odd">
+<td>Relative motion</td>
+<td>2</td>
+<td>-</td>
+<td>95</td>
+<td>-</td>
+<td>Zebrafish</td>
+<td>-</td>
+<td>Toxicology research and drug screening</td>
+</tr>
+</tbody>
+</table>
+<h4 id="electric-field-methods">2.2. Electric Field Methods</h4>
+<p>Electric field methods follow the principle of DEP (dielectrophoretic
+force, 介电泳力). Particles are polarized in an uneven electric field
+and interact with the applied electric field to generate a resultant
+force to move to the area of the strong electric field. DEP forces are
+classified into two categories, positive-DEP (p-DEP) force and
+negative-DEP (n-DEP) force. If the applied electric field is more
+polarized than the medium, p-DEP will pull the particles to higher
+electric gradients. In contrast, n-DEP repels the particles away from
+the higher electric gradients. Similar to the DEP phenomenon,
+electrorotation (ER) draws upon an electric field to change the
+direction of particles‘ circular motion.</p>
+<p>Planar electrodes are easy to manufacture, whereas the electric field
+strength is not uniform. Especially, the electric field strength changes
+significantly in the vertical direction, which decays rapidly and
+negatively affects stable cell rotation. If electrode intervals less
+than 60 μm are prone to short circuits, high voltages may lead to
+several problems (e.g., hydroelectrolysis and Joule heat).</p>
+<h4 id="optical-field-methods">2.3. Optical Field Methods</h4>
+<p>Optical field methods suggest that a highly focused laser beam is
+capable of forming optical trapping that applies trapping force and
+torque to particles of interest. <strong>It ranges in size from dozens
+of nanometers to dozens of micrometers</strong>. Cells are subjected to
+two forces in the light field, the gradient force and the scattering
+force.</p>
+<p>The stiffness and magnitude of the optical trapping forces can be
+adjusted by the intensity of the laser beams, and the trapping forces
+change in a range from femto-Newtons to nano-Newtons, thus making them
+well suited to capture <strong>micrometer-sized particles</strong> with
+different sizes and weights. The optical beam operates on the cell like
+a pair of tweezers, so they are termed optical tweezers. Optical
+tweezers are classified as single-beam optical tweezers, holographic
+optical tweezers, optic-fiber optical tweezers, planar waveguide optical
+tweezers, photonic crystal optical tweezers, and plasma optical
+tweezers. The manipulation methods of optical tweezers can be classified
+into direct contact and indirect contact methods.</p>
+<p>Direct contact methods are single cell directly exposed to the light
+beam. The direct optical trapping cell method is simple and fast to
+operate. However, the direct exposure of cells to intense optical beams
+leads to a 67% cellular photodamage (细胞光损伤) rate. Accordingly,
+numerous authors have proposed different ways to reduce the photodamage,
+including <strong>lower laser power</strong> or the application of gel
+particles (凝胶颗粒).</p>
+<p>At present, indirect control methods are generally adopted, which can
+be classified as microrobot method, gripper formation method, and
+indirect push method.</p>
+<p>Micromotors hold exciting prospects in biomedical applications,
+whereas there have been rate few reports on micromotors with high
+safety, exible controllability, and full biocompatibility.</p>
+<h4 id="magnetic-field-methods">2.4. Magnetic Field Methods</h4>
+<p>Magnetic field methods are adopted to drive tiny objects to move by
+magnets or external magnetic fields. Changes of the magnitude and
+direction of themagnetic field allow flexible control of the particle
+attitude. The magnetic force acts at a long distance and can be applied
+without direct contact with the cells, thus significantly reducing the
+potential danger that could reduce cell viability. Magnetic field
+methods can primarily classified into <strong>direct contact</strong>
+and <strong>indirect contact</strong> methods.</p>
+<p>In magnetic field contact methods, a magnetic micromanipulator is
+used to manipulate cells directly. These methods are similar to
+mechanical contact methods, whereas the difference is the driving
+field.</p>
+<p>There are three methods of indirect contact by the magnetic fields.
+One is to achieve rotation by attaching magnetic beads (磁珠) to the
+cell. Although the labeled magnets are made of biocompatible materials,
+the above materials are nearly nondegradable (不可降解) and the
+potential effect remains unknown.</p>
+<p>The other method is the vortex (涡流) induced by rotating magnetic
+field for cell rotation, which can be manipulated by the vortex induced
+by magnetic actuator.</p>
+<h4 id="acoustic-field-methods">2.5. Acoustic Field Methods</h4>
+<p>Acoustic waves, also known as acoustic tweezers, are a type of
+mechanical wave with energy. Acoustic waves use two opposite sound
+sources to generate acoustic waves to capture and push the cell.
+According to the operating principle, acoustic waves can be divided into
+bulk acoustic waves (BAWs 声体波), SAWs (e.g., traveling and standing
+waves 行波和驻波), and acoustic flow tweezers (AFTs 声流镊子). Among
+these, the first two groups are direct manipulation strategies induced
+by external acoustic radiation forces, while the last group is an
+indirect manipulation strategy with fluid flow.</p>
+<p>BAWs exploit high-frequency vibrations to induce ultrasonic vibration
+of solid structures, while generating stable counterrotating microvortex
+(反向旋转微涡流) to rotate cells, microorganisms, and others around the
+surrounding fluid. BAWs represent the interaction of the reflected wave
+with the original wave on the reflecting surface, which are classified
+into ultrasonic traveling waves (UTWs) and ultrasonic standing waves
+(USWs) operation. The above technique has been generally used for
+<strong>cell separation</strong> or <strong>focusing</strong>, whereas
+it has been rarely used for cell translation and rotation. BAW based has
+some limitations and can only be operated in a specific position, static
+flow, or one direction (clockwise or counterclockwise) for rotation.
+SAWs are excited on the surface of piezoelectric crystals using
+interdigital transducers.</p>
+<p>AFTs are driven by ultrasonic transducers adhering to microfluidic
+devices, thus exerting acoustic flow effects to drive cells. For
+instance, acoustic flow effects arise from the vibration of the sharp
+structure or the bubble surface
+(声流效应是由尖锐结构或气泡表面的振动引起的).</p>
+<p>BAWs, SAWs, and AFTs are three ways to drive cells by acoustic
+fields. The former two ways are to apply acoustic radiation force
+directly to cells, while the third way is to apply indirectly to cells
+by inducing fluids. However, the size and geometry of microbubbles
+change easily, thus resulting in the instability of acoustic parameters.
+Moreover, because of the diffraction phenomenon of acoustic wave length
+and the nonlinear of fluid in nanometer scale, the effective range of
+vibroacoustic operation has been generally at micrometer and millimeter
+scale.</p>
+<h4 id="hydrodynamic-drive-methods">2.6. Hydrodynamic Drive Methods</h4>
+<p>Hydrodynamic drive methods are powered by liquid to drive the
+controlled object for the positional adjustment. It can be achieved to
+control the liquid flow rate and flow direction in the corresponding
+channel via micropump, microvalve, and microstructure for adjusting
+single-cell position. The above method will not cause mechanical damage
+to the cells, or exert unknowable biological effects on the object, and
+it has been recognized as the most environment-friendly manipulation
+method thus far. There have been two main regions of fluid flow,
+including laminar region and turbulent region (层流区域和湍流区域).
+Hydrodynamic drive methods can be classified into the method based on
+the internal microstructure, that based on the micropipette fluid spray,
+and that based on vibration-induced vortex
+(流体动力驱动方法可分为基于内部微观结构的方法、基于微量流体喷射的方法和基于振动诱导涡流的方法).</p>
+<h4 id="summary">2.7. Summary</h4>
+<table>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Methods</th>
+<th>Mechanism</th>
+<th>Complexity</th>
+<th>Sizes [<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>]</th>
+<th>Resolution [<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>]</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mechanical contact</td>
+<td>Mechanical contact</td>
+<td>Low</td>
+<td>100–1200</td>
+<td>Higher <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="8.171ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 3611.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(778,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1278,0)"></path></g><g data-mml-node="mo" transform="translate(2055.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(3111.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span></td>
+<td>Higher repositioning accuracy, stable operation, label-free</td>
+<td>Cell deformation, higher risk of cell mechanical damage, high
+precision mechanical motion system, complex operation system</td>
+</tr>
+<tr class="even">
+<td>Electric field</td>
+<td>DEP Force</td>
+<td>Medium</td>
+<td>0.001–120</td>
+<td>Higher <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="7.04ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 3111.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(1555.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(2611.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span></td>
+<td>Low cost, high efficiency,label-free, higher rotational accuracy,
+easy to integrate manufacturing</td>
+<td>Constrained by electric field distribution, potential electrical
+damage, low conductivity buffer when the liquid flow rate increases,
+lower efficiency and accuracy</td>
+</tr>
+<tr class="odd">
+<td>Optical field</td>
+<td>Trapping</td>
+<td>Medium, High</td>
+<td>4–20</td>
+<td>High <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="14.456ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 6389.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(778,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1278,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1778,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(2278,0)"></path></g><g data-mml-node="mo" transform="translate(3055.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(4111.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(778,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1278,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1778,0)"></path></g></g></g></svg></mjx-container></span></td>
+<td>High rotation accuracy,label-free, single-cell,low drift</td>
+<td>Optical damage, expensive instrumentation, weak capture low
+throughput, bulky optical system with opaque</td>
+</tr>
+<tr class="even">
+<td>Magnetic field</td>
+<td>Magnetic gradient</td>
+<td>High</td>
+<td>5–120</td>
+<td>Higher <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="12.194ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 5389.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(778,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1278,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1778,0)"></path></g><g data-mml-node="mo" transform="translate(2555.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(3611.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(778,0)"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1278,0)"></path></g></g></g></svg></mjx-container></span></td>
+<td>Greater drive power, reliability and efficiency</td>
+<td>Constrained by the magnetic field distribution, requires
+pretreatment of cells, labeling, force hysteresis</td>
+</tr>
+<tr class="odd">
+<td>Acoustic field</td>
+<td>Axial acoustic forces</td>
+<td>Low</td>
+<td>10–3100</td>
+<td>Low (<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="6.411ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 2833.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(777.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(1833.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g></g></g></svg></mjx-container></span>)</td>
+<td>Label-free</td>
+<td>Stimulation of cells, required piezoelectric substrates for chip
+fabrication, limited precise cell rotation</td>
+</tr>
+<tr class="even">
+<td>Hydrodynamic drive</td>
+<td>Hydrodynamic inertial forces</td>
+<td>Low</td>
+<td>10–5 50</td>
+<td>Low (<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="6.411ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 2833.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(777.8,0)"><path data-c="2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></g><g data-mml-node="mn" transform="translate(1833.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g></g></g></svg></mjx-container></span>)</td>
+<td>Low cost, massive, article rotation <br>Easy to integrate
+manufacturing</td>
+<td>Rotational accuracy, complex and cumbersome external control
+equipment, poor flexibility, difficult to control specific
+single-cell</td>
+</tr>
+</tbody>
+</table>
+<img src="/2022/08/08/20220806-A%20Review%20of%20Single-Cell%20Pose%20Adjustment%20and%20Puncture/postureapplication.png" class="" title="aa">
+<p>The mechanical contact methods are a classical cell manipulation
+style, which has a high orientation accuracy, low operation difficulty,
+and large contact forces. However, excessive contact forces can lead to
+large cell deformation and may damage important organelles inside the
+cell. In addition, the existence of bonding forces in mechanical contact
+makes it difficult to effectively release microobjects. The accuracy of
+the mechanical contact methods requires accurate movement of the end
+effector, which also has high requirements for the mechanical system and
+the control system. <strong>It is mainly used for single-cell
+manipulation above 100</strong> <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>.</p>
+<p>Noncontact manipulation avoids the shortcomings of direct mechanical
+contact methods, which may be the reason why numerous biologists prefer
+it. Electric field, optical field, and magnetic field methods use
+external force to actively control the cells with high precision. It has
+been shown that the electric field methods can cause electrical damage
+to the cells, and the movement of the cells is related to the electrical
+properties of the medium they are in, the applied electric field, the
+shape of the electrodes, etc. Accordingly, cells with different
+dielectric properties can be manipulated by controlling the dielectric
+properties or the input voltage conditions, which can be used for
+<strong>cell dielectric property characterization and
+imaging</strong>.</p>
+<p>The optical field approaches driven indirectly by particles can
+reduce a lot of photodamages, but it is difficult to eliminate entirely.
+<strong>It is mainly used to rotate cells of 4–20</strong> <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span> and difficult to rotate such large
+cells as 100 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>.</p>
+<p>The magnetic field methods usually require superparamagnetic material
+to label the cells introducing the difficult of separation, and the
+orientation of the magnetic field limits the cell rotation.
+<strong>Magnetic fields can</strong> <strong>penetrate human tissues and
+thus may be promising for targeted drug delivery or cell
+therapy</strong>.</p>
+<p>The hydrodynamic drive methods can be operated not only in single
+cell, but also multiple cells. However, once the object or task is
+changed, the microfluidic device should be redesigned, and the enclosed
+space limits single-cell puncture operations, which is undesired in
+universality.</p>
+<p>The acoustic field methods are different from the above methods.
+Although the accuracy is not as high as other methods, compared with the
+optical field, it has lower energy and does not destroy cell viability.
+Compared with the magnetic field, it does not require the material to
+have magnetism or other special properties.</p>
+<p>Even under the same conditions, different cell shapes and sizes can
+affect the effectiveness of the operation. Thus it is important to
+choose the operation method according to the characteristics of the
+application scenario.</p>
+<h3 id="cell-puncture-methods">3. Cell Puncture Methods</h3>
+<p>Different from the cell pose adjustment, the cell puncture is an
+invasive cell manipulation. Cell puncture is to use a common glass
+needle to penetrate the cell wall and insert it into the cell. It can be
+used for foreign substance introduction, sperm injection, nuclear
+transfer, protein, peptide and genetic substance injection, drug
+delivery, etc. Cell puncture methods can be classified into
+<strong>ordinary glass needle puncture</strong>,
+<strong>piezoelectric-assisted puncture</strong>, <strong>Ros-drill
+puncture</strong>, and other methods.</p>
+<h4 id="ordinary-glass-needle-puncture-methods">3.1. Ordinary Glass
+Needle Puncture Methods</h4>
+<p>Ordinary glass needle puncture methods are based on external pressure
+operation. When puncturing mammalian oocytes, microneedle puncture will
+generate great deformation due to the existence of the zona pellucida.
+So, the polar body of oocyte may be damaged, which leads to the failure
+of oocyte fertilization and embryo development.
+(穿刺哺乳动物卵母细胞时，由于透明带的存在，微针穿刺会产生很大的变形。因此，卵母细胞的极体可能受损，从而导致卵母细胞受精和胚胎发育的失败.)
+The ordinary glass needle puncture method is a challenging manual task
+with a reported survival rate of 30–40% for mouse oocyte. The manual
+operation needs experienced skill to define parameters of the incision
+point, insertion depth, and puncture speed. To achieve batch puncture or
+injection of cells, two kinds of method are proposed to combine glass
+needles and <strong>microfluidic chips</strong>. One is to move cells
+onto a stationary microneedle and the other is to move the needle into
+an immobilized cell.</p>
+<h4 id="piezoelectric-assisted-puncture-methods">3.2.
+Piezoelectric-Assisted Puncture Methods</h4>
+<p>To puncture the cells more safely, the moving speed of the needle
+should be kept at 700 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="7.022ex" height="2.375ex" role="img" focusable="false" viewBox="0 -833.9 3103.7 1049.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mstyle" transform="translate(1481,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msup" transform="translate(1648,0)"><g data-mml-node="mi"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></g><g data-mml-node="TeXAtom" transform="translate(502,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></g></g></svg></mjx-container></span>
+during puncture, whereas the normal glass needle puncture methods are
+difficult to achieve. The piezoelectric-assisted puncture methods apply
+a pulse signal to the piezoelectric element, which is rapidly deformed
+to drive the tip of the injection pipette to move accurately and rapidly
+for the complete puncture with minimal cell deformation. Impacted by the
+piezoelectric devicesp laced behind the injection needle device, the
+needle tip laterally vibrates, thus damaging the oocyte membrane.</p>
+<p>Piezoelectric-assisted punctures primarily adopt concentric
+structures, and piezoelectric drivers are placed directly behind
+microtubes, thus disturbing the standard setting. In addition, an
+eccentric structure is developed, and the piezoelectric actuator is
+placed next to the microtubule bracket. In the above devices, the
+piezoelectric actuator is connected to the inertial mass through a
+spring to drive the inertial mass to vibrate. However, the vibration is
+difficult to keep along the axial direction, due to the lack of lateral
+restraint.</p>
+<h4 id="ros-drill-puncture-methods">3.3. Ros-Drill Puncture Methods</h4>
+<p>Ros-drill puncture methods adopt a micromotor rotating motion to make
+the tip of the injection tube produce high-frequency and small-amplitude
+rotation oscillation for puncture.</p>
+<h4 id="other-methods">3.4. Other Methods</h4>
+<p>Besides the above methods, there are some cell puncture methods based
+on other physical principles, which are applied to specific scenes
+(e.g., ultrasound puncture, nanopuncture, electroporation, and DEP
+methods).</p>
+<h4 id="summary-1">3.5. Summary</h4>
+<table>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Mechanism</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ordinary glass needle puncture</td>
+<td>External pressure</td>
+<td>Simple equipment, low cost</td>
+<td>Larger cell deformation</td>
+<td>Cell injection</td>
+</tr>
+<tr class="even">
+<td>Piezoelectric-assisted puncture</td>
+<td>Piezoelectric effect</td>
+<td>Small-cell vibrations, damping fluid</td>
+<td>Transverse and axial deformation</td>
+<td>Cell injection</td>
+</tr>
+<tr class="odd">
+<td>Ros-drill puncture</td>
+<td>Rotational oscillation</td>
+<td>No lateral vibration, small-cell deformation</td>
+<td>Small adjustable range of frequency and amplitude</td>
+<td>Cell surgery<br>Cell injection</td>
+</tr>
+<tr class="even">
+<td>Gene gun</td>
+<td>High-speed particle bombardment (粒子轰击)</td>
+<td>Easy operation</td>
+<td>Low transform efficiency</td>
+<td>Plant breeding</td>
+</tr>
+<tr class="odd">
+<td>Nanopunctur 纳米穿刺器</td>
+<td>Nanopipette injection</td>
+<td>Very thin needle holes</td>
+<td>High manufacture price of nanoinjection needle and easy to
+break</td>
+<td>Cell puncture</td>
+</tr>
+<tr class="even">
+<td>Electroporation</td>
+<td>Changed cell permeability</td>
+<td>Faster operation, higher transfection rate, and higher cell
+viability</td>
+<td>High voltage pulses lead to very high cell death rate</td>
+<td>Exogenous material introduction</td>
+</tr>
+<tr class="odd">
+<td>DEP</td>
+<td>Dielectric effect</td>
+<td>Label-free, easy-to-integrate manufacturing, easy to operate</td>
+<td>Heat generation is harmful to cellular activity, electrical
+damage</td>
+<td>Organelle Sampling 细胞器取样</td>
+</tr>
+</tbody>
+</table>
+<p>This section introduces three main puncture methods, including
+ordinary glass needle puncture, piezoelectric-assisted puncture, and
+Ros-drill puncture methods. The ordinary glass needle puncture methods
+have been more extensively applied in practice with low-cost and easy
+fabrication. However, an experienced operator is required, and the cell
+deformation is larger than other methods.</p>
+<p>The piezoelectric-assisted injection method and Ros-drill injection
+methods are characterized by significantly higher efficiency, cell
+penetration rate, and oocyte division rate compared with the
+conventional injection method. The piezoelectric-assisted injection
+methods have high resolution and are easy to control, thus producing
+axial vibration and lateral vibration, which play a dominant role in
+cell penetration. <strong>However, larger lateral vibration can destroy
+cells, especially the resonance phenomenon, which is dominant in ICSI
+experiments and clinical activities</strong>.</p>
+<p>Compared with the piezoelectric-assisted injection method, Ros-drill
+injection methods have no lateral vibration, <strong>whereas their
+adjustable range of frequency and amplitude is relatively small, thus
+reducing control precision</strong>.</p>
+<h3 id="discussion">4. Discussion</h3>
+<p>Based on the comparison of the above single-cell pose adjustment
+methods, we can conclude as follows.</p>
+<ol type="1">
+<li>Mechanical contact methods can achieve cell trap and cell
+reorientation, while excessive force can cause cell deformation and may
+lead to mechanical damage, which is not beneficial to cell
+development;</li>
+<li>Electrical field can be used to measure the dielectric properties of
+cell and sort the cell. However, high voltage can lead to electrical
+damage for cells and is bad for cell viability;</li>
+<li>Optical field is more suitable at the scenario of precise pose
+adjustment (resolution of 0.1–1 nm). The side effect is that the cell
+can have light damage under direct high-strength laser and is limited in
+light-sensitive application. In order to reduce light damage, laser
+indirect methods can be adopted;</li>
+<li>Magnetic field does not cause additional damage for cell but
+requires superparamagnetic material to label the cells. Although these
+materials are biocompatible, they are difficult to degrade or
+separate;</li>
+<li>Hydrodynamic drive is a green manipulation approach for cell.
+However, cell movement and rotation need to rely on the internal
+microstructure, which can be designed according to the purpose of the
+experiment and the type of cell;</li>
+<li>Acoustic field has good biocompatibility for cell but the resolution
+of cell operations is poorer (1–10 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.351ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 1481 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path></g><g data-mml-node="mi" transform="translate(603,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>) than other methods.</li>
+</ol>
+<p>For single-cell puncture, ordinary glass needle puncture methods,
+piezoelectric-assisted puncture methods, and Ros-drill puncture methods
+are summarized based on different driving approaches.</p>
+<ol type="1">
+<li>Ordinary glass needle puncture methods are common methods of cell
+puncture, while excessive force can lead to large deformation during
+puncture, which is harmful to cell viability;</li>
+<li>Piezoelectric-assisted puncture methods are more likely to make the
+cell puncture successful but the lateral vibration is adverse to cell.
+Larger lateral vibrations may rupture cells and even cause cell death.
+In order to reduce lateral vibration, piezoelectric actuators can be
+placed directly behind injection needle. However, piezoelectric ceramic
+actuators show some shortcomings (e.g., small output range, hysteresis,
+and creep). Some scholars have studied to compensate for piezoelectric
+ceramic actuators to improve control performance to some extent, whereas
+the above problems have not been fundamentally solved;</li>
+<li>Ros-drill puncture methods take needle tip rotation movement to
+puncture cells, which requires high straightness of needle manufacture
+and coaxiality of assembly.</li>
+</ol>
+<p>The future development of single-cell manipulation relies on better
+manipulation hands, smarter perception, and more intelligent brain.
+<strong>The scenario of single-cell manipulation will also not limit in
+vitro, but trend in vivo with a more unstructured environment</strong>.
+Multiple modes of operating platforms would be better manipulation hands
+for cell manipulation with higher efficiency and more functions. Each
+approach has its limits and advantages. The noncontact operation methods
+can operate the cells at a distance, while the contact operation method
+can realize the cell puncture easier. Multiple methods are promising to
+integrate on the microfluidic chip, which can realize complementary
+advantages for manipulation, contributing to the higher efficiency and
+multimanipulations at a single shot.</p>
+<p>Perception is an important basis for precise single-cell
+manipulation. Currently cell manipulation is under a 2D microscopic view
+which misses depth perception. Besides the visual perception, tactile
+perception and electrochemical sensors have shown positive effects in
+information perception. Force sensors can precisely sense the contact
+force of the cell, and electrochemical sensors can characterize the
+intracellular chemical substance. The multisensor information fusion can
+be used to achieve better cell perception by overcoming the drawbacks of
+incomplete or unreliable information from individual sensors.</p>
+<p>Intelligent manipulation plays an important role in autonomous
+single-cell manipulation. The success of the manipulation task depends
+to a large extent on the quality of recognition and control model
+employed. However, in a high-noise, complex, dynamic, and unpredictable
+working environment, it is a challenge to establish an accurate
+recognition and control model, due to the fact that it requires a lot of
+priori knowledge.</p>
+<p>The scenario of single-cell manipulation is not only in vitro
+(体外培养), but also in vivo. Wireless power supply for microrobots and
+the microrobots of biodegradable materials are promising for single-cell
+manipulation in vivo. Microrobots are increasingly used in single-cell
+manipulation. Single-cell manipulation is performed in mainly in vitro
+scenario at present, which is a structured environment. However,
+manipulation in vivo is difficult. One challenge is the remote power
+supply and control of the microrobot. Traditional microrobots need to be
+equipped with energy storage devices, but they are too bulky and limited
+to provide power for long periods of time. Magnetic, acoustic, and
+optical fields can enable remote power transmission, which can achieve
+free motion and control of the robot. However how to improve the
+efficiency of energy transmission is a pressing issue. Another challenge
+is the degradability of materials. Biocompatible materials are already a
+common material in biomedical applications, but degradable materials
+design is still an open challenge. It is essential to develop degradable
+materials for in vitro single-cell manipulation, which does not require
+exclusion from the living organisms.</p>
+<p>High efficiency, high precision, high throughput, low cost, and low
+damage have been the hot topics of single-cell manipulation.</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Compliant-Mechanisms/">#Compliant Mechanisms</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/08/06/20220805-Surgical%20Applications%20of%20Compliant%20Mechanisms%20A%20Review/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Surgical applications of compliant mechanisms- a review</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Zhao Zhao</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
